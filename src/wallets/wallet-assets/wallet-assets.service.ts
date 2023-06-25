@@ -22,12 +22,14 @@ export class WalletAssetsService {
     });
   }
 
+  //O version 1 é o inicio do lock otimistic
   create(input: { wallet_id: string; asset_id: string; shares: number }) {
     return this.prismaService.walletAsset.create({
       data: {
         wallet_id: input.wallet_id,
         asset_id: input.asset_id,
         shares: input.shares,
+        version: 1,
       },
     });
   }

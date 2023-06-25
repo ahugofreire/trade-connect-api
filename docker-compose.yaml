@@ -4,10 +4,12 @@ services:
   app:
     build: .
     ports:
-      - 3000:3000
+      - 3001:3001
       - 5555:5555
     volumes:
       - .:/home/node/app
+    extra_hosts:
+    - "host.docker.internal:172.23.0.1"
 
   db:
     image: bitnami/mongodb:5.0.17
@@ -21,4 +23,4 @@ services:
 
 volumes:
   mongodb_data:
-    driver: local   
+    driver: local
