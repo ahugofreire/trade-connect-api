@@ -3,13 +3,13 @@ import { AppModule } from './app.module';
 import { Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   app.connectMicroservice({
     trasport: Transport.KAFKA,
     options: {
       client: {
-        brokers: ['host.docker.internal:9094'],
+        brokers: ['kafka:9092'],
       },
       consumer: {
         grupoId: 'orders-consumer',
@@ -18,6 +18,6 @@ async function bootstrap() {
   });
 
   await app.startAllMicroservices();
-  await app.listen(3001);
+  await app.listen(3333);
 }
 bootstrap();
