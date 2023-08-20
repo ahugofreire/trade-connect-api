@@ -1,56 +1,59 @@
 
-GET http://localhost:3000
+GET http://localhost:3333
 
 ###
-POST http://localhost:3000/assets
+POST http://localhost:3333/assets
 Content-Type: application/json
 
 {
-    "id": "asset1",
-    "symbol": "A1",
+    "id": "asset2",
+    "symbol": "ITB4",
     "price": 15.00
 }
 
 ###
-GET http://localhost:3000/assets
+GET http://localhost:3333/assets
 
 ###
-GET http://localhost:3001/wallets
+GET http://localhost:3333/wallets
 
 ###
-POST http://localhost:3001/wallets
+POST http://localhost:3333/wallets
 Content-Type: application/json
 
 {
-    "id": "wallet3"
+    "id": "wallet2"
 }
 
 ###
-GET http://localhost:3001/wallets/wallet1/assets
+GET http://localhost:3333/wallets/wallet1/assets
 
 ###
-POST http://localhost:3000/wallets/wallet2/assets
+POST http://localhost:3333/wallets/wallet2/assets
 Content-Type: application/json
 
 {
-    "asset_id": "asset1",
-    "shares": 10
+    "asset_id": "asset2",
+    "shares": 300
 }
 
+
+//Relacionamentos e ordes
+
 ###
-POST http://localhost:3001/wallets/wallet3/orders
+POST http://localhost:3333/wallets/wallet1/orders
 Content-Type: application/json
 
 {
     "asset_id": "asset1",
     "wallet_id": "wallet1",
-    "shares": 20,
-    "price": 15.00,
-    "type": "SELL"
+    "shares": 10,
+    "price": 19.00,
+    "type": "BUY"
 }
 
 ###
-GET http://localhost:3000/wallets/wallet1/orders
+GET http://localhost:3333/wallets/wallet1/orders
 
 ###
 POST http://localhost:3000/wallets/wallet1/orders/execute

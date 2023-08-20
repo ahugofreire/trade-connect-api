@@ -56,6 +56,9 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+# run simulate
+$ npm run command simulate-assets-price
 ```
 
 ## Support
